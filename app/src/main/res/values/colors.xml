@@ -2,4 +2,72 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+    <!-- Gray -->
+    <color name="gray_100">#F9F9FB</color>
+    <color name="gray_200">#F2F1F5</color>
+    <color name="gray_300">#ECEBF0</color>
+    <color name="gray_400">#EAE9EE</color>
+    <color name="gray_500">#D1CFD8</color>
+    <color name="gray_600">#B9B6C2</color>
+    <color name="gray_700">#A09DAA</color>
+    <color name="gray_800">#807D88</color>
+    <color name="gray_900">#5F5D66</color>
+
+
+    <!-- White -->
+    <color name="white_100">#FFFFFF</color>
+    <color name="white_200">#FEFEFE</color>
+    <color name="white_300">#FBFBFD</color>
+    <color name="white_400">#FAFAFC</color>
+    <color name="white_500">#F1F1F3</color>
+    <color name="white_600">#E7E7EA</color>
+    <color name="white_700">#DCDCE0</color>
+    <color name="white_800">#C9C9CF</color>
+    <color name="white_900">#B4B4BB</color>
+
+    <!-- Black -->
+    <color name="black_100">#252932</color>
+    <color name="black_200">#232426</color>
+    <color name="black_300">#1C1D1F</color>
+    <color name="black_400">#1A1B1D</color>
+    <color name="black_500">#17181A</color>
+    <color name="black_600">#141517</color>
+    <color name="black_700">#111214</color>
+    <color name="black_800">#0D0E10</color>
+    <color name="black_900">#090A0B</color>
+
+    <!-- Blue -->
+    <color name="blue_100">#E6E7FF</color>
+    <color name="blue_200">#BFC1FF</color>
+    <color name="blue_300">#999AFF</color>
+    <color name="blue_400">#1D1FFD</color>
+    <color name="blue_500">#191ADB</color>
+    <color name="blue_600">#1517B9</color>
+    <color name="blue_700">#121397</color>
+    <color name="blue_800">#0E1075</color>
+    <color name="blue_900">#0A0C53</color>
+
+    <!-- Red -->
+    <color name="red_100">#FFE6E9</color>
+    <color name="red_200">#FFBFC6</color>
+    <color name="red_300">#FF99A3</color>
+    <color name="red_400">#DF2644</color>
+    <color name="red_500">#C0213C</color>
+    <color name="red_600">#A11C34</color>
+    <color name="red_700">#82172C</color>
+    <color name="red_800">#631224</color>
+    <color name="red_900">#440D1C</color>
+
+    <!-- Green -->
+    <color name="green_100">#D9F7EA</color>
+    <color name="green_200">#A7EFD0</color>
+    <color name="green_300">#6FE5B1</color>
+    <color name="green_400">#12B576</color>
+    <color name="green_500">#0FA26A</color>
+    <color name="green_600">#0C8F5E</color>
+    <color name="green_700">#0A7B52</color>
+    <color name="green_800">#076846</color>
+    <color name="green_900">#05543A</color>
+
 </resources>
