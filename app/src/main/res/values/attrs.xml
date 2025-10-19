@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="DayNightAppTheme">
+        <!-- Text Color -->
+        <attr name="textColor" format="color" />
+
+        <!-- Background Color -->
+        <attr name="containerColor" format="color" />
+        <attr name="cardColor" format="color" />
+    </declare-styleable>
+</resources>
