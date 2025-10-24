@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">dumb_password</string>
-</resources>
+
+    <string name="new_password">Criar nova senha</string>
+</resources> 
