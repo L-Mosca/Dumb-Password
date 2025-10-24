@@ -7,5 +7,7 @@
         <!-- Background Color -->
         <attr name="containerColor" format="color" />
         <attr name="cardColor" format="color" />
+
+        <attr name="colorAccent" format="color" />
     </declare-styleable>
 </resources>
