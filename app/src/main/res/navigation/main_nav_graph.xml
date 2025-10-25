@@ -19,5 +19,19 @@
         android:id="@+id/homeFragment"
         android:name="br.com.moscatech.dumbpassword.ui.screens.home.HomeFragment"
         android:label="HomeFragment"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_home">
+        <action
+            android:id="@+id/action_homeFragment_to_createPasswordFragment"
+            app:destination="@id/createPasswordFragment"
+            app:enterAnim="@anim/popup_enter"
+            app:exitAnim="@anim/popup_exit"
+            app:popEnterAnim="@anim/popup_pop_enter"
+            app:popExitAnim="@anim/popup_pop_exit" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/createPasswordFragment"
+        android:name="br.com.moscatech.dumbpassword.ui.screens.create_password.CreatePasswordFragment"
+        android:label="CreatePasswordFragment"
+        tools:layout="@layout/fragment_create_password" />
 </navigation>

@@ -1,5 +1,12 @@
 <resources>
     <string name="app_name">dumb_password</string>
 
-    <string name="new_password">Criar nova senha</string>
-</resources> 
+    <!-- New Password -->
+    <string name="new_password">Nova Senha</string>
+    <string name="group">Grupo</string>
+    <string name="select_group">Selecione um grupo</string>
+    <string name="must_select_group">* Selecione um grupo</string>
+    <string name="platform">Plataforma</string>
+    <string name="select_platform">Selecione uma plataforma</string>
+    <string name="must_select_platform">* Selecione uma plataforma</string>
+</resources>

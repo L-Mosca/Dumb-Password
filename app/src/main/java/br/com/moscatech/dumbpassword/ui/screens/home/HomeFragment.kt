@@ -4,6 +4,7 @@ import android.view.LayoutInflater
 import androidx.fragment.app.viewModels
 import br.com.moscatech.dumbpassword.base.BaseFragment
 import br.com.moscatech.dumbpassword.databinding.FragmentHomeBinding
+import br.com.moscatech.dumbpassword.utils.navigate
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -14,7 +15,12 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
 
     override val viewModel: HomeViewModel by viewModels()
 
-    override fun initViews() {}
+    override fun initViews() {
+        binding.fabNewPassword.setOnClickListener {
+            val direction = HomeFragmentDirections.actionHomeFragmentToCreatePasswordFragment()
+            navigate(direction)
+        }
+    }
 
     override fun initObservers() {}
 }
