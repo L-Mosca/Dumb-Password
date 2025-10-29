@@ -33,5 +33,11 @@
         android:id="@+id/createPasswordFragment"
         android:name="br.com.moscatech.dumbpassword.ui.screens.create_password.CreatePasswordFragment"
         android:label="CreatePasswordFragment"
-        tools:layout="@layout/fragment_create_password" />
+        tools:layout="@layout/fragment_create_password">
+        <action
+            android:id="@+id/action_createPasswordFragment_to_group_nav_graph"
+            app:destination="@id/group_nav_graph" />
+    </fragment>
+
+    <include app:graph="@navigation/group_nav_graph" />
 </navigation>

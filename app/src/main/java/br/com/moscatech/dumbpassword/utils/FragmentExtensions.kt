@@ -12,3 +12,7 @@ fun Fragment.navigate(direction: NavDirections) {
 fun Fragment.navigate(direction: NavDirections, navOptions: NavOptions) {
     findNavController().navigate(direction, navOptions)
 }
+
+fun Fragment.popBackStack() {
+    findNavController().popBackStack()
+}
