@@ -9,4 +9,10 @@
     <string name="platform">Plataforma</string>
     <string name="select_platform">Selecione uma plataforma</string>
     <string name="must_select_platform">* Selecione uma plataforma</string>
+
+    <!-- Group -->
+    <string name="groups">Grupos</string>
+    <string name="non_groups_found">Você ainda não possui nenhum grupo</string>
+    <string name="new_group">Novo grupo</string>
+
 </resources>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/group_nav_graph"
+    app:startDestination="@id/groupFragment">
+
+    <fragment
+        android:id="@+id/groupFragment"
+        android:name="br.com.moscatech.dumbpassword.ui.screens.group.GroupFragment"
+        android:label="GroupFragment"
+        tools:layout="@layout/fragment_group">
+        <action
+            android:id="@+id/action_groupFragment_to_fragmentNewGroup"
+            app:destination="@id/fragmentNewGroup"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/fragmentNewGroup"
+        android:name="br.com.moscatech.dumbpassword.ui.screens.new_group.FragmentNewGroup"
+        android:label="FragmentNewGroup"
+        tools:layout="@layout/fragment_new_group" />
+</navigation>

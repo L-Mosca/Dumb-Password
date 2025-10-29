@@ -20,4 +20,8 @@
         <attr name="errorText" format="string" />
         <attr name="showError" format="boolean" />
     </declare-styleable>
+
+    <declare-styleable name="BaseAppBar">
+        <attr name="title" format="string" />
+    </declare-styleable>
 </resources>
