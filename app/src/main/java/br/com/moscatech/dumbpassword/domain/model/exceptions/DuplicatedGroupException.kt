@@ -1,0 +1,3 @@
+package br.com.moscatech.dumbpassword.domain.model.exceptions
+
+class DuplicatedGroupException : Exception()

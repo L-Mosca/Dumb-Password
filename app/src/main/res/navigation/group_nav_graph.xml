@@ -11,17 +11,14 @@
         android:label="GroupFragment"
         tools:layout="@layout/fragment_group">
         <action
-            android:id="@+id/action_groupFragment_to_fragmentNewGroup"
-            app:destination="@id/fragmentNewGroup"
-            app:enterAnim="@anim/slide_in_right"
-            app:exitAnim="@anim/slide_out_left"
-            app:popEnterAnim="@anim/slide_in_left"
-            app:popExitAnim="@anim/slide_out_right" />
+            android:id="@+id/action_groupFragment_to_newGroupDialog"
+            app:destination="@id/newGroupDialog" />
     </fragment>
 
-    <fragment
-        android:id="@+id/fragmentNewGroup"
-        android:name="br.com.moscatech.dumbpassword.ui.screens.new_group.FragmentNewGroup"
-        android:label="FragmentNewGroup"
-        tools:layout="@layout/fragment_new_group" />
+    <dialog
+        android:id="@+id/newGroupDialog"
+        android:name="br.com.moscatech.dumbpassword.ui.screens.new_group.NewGroupDialog"
+        android:label="NewGroupDialog"
+        tools:layout="@layout/dialog_new_group" />
+
 </navigation>
