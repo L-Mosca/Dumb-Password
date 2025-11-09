@@ -8,6 +8,8 @@ import android.widget.Toast
 import androidx.activity.addCallback
 import androidx.annotation.StringRes
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.MutableLiveData
+import androidx.navigation.fragment.findNavController
 import androidx.viewbinding.ViewBinding
 import com.google.android.material.snackbar.Snackbar
 
@@ -80,5 +82,9 @@ abstract class BaseFragment<VB : ViewBinding> : Fragment() {
     override fun onDestroyView() {
         viewBinding = null
         super.onDestroyView()
+    }
+
+    protected fun <T> getNavigationResult(key: String): MutableLiveData<T>? {
+        return findNavController().currentBackStackEntry?.savedStateHandle?.getLiveData(key)
     }
 }

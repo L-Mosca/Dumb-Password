@@ -84,4 +84,7 @@ dependencies {
     implementation("androidx.room:room-ktx:2.8.2")
     testImplementation("androidx.room:room-testing:2.8.2")
     implementation("androidx.room:room-paging:2.8.2")
+
+    // Gson
+    implementation("com.google.code.gson:gson:2.13.2")
 }
