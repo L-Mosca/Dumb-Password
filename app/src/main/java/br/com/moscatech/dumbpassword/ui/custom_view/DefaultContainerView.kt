@@ -5,6 +5,7 @@ import android.animation.ValueAnimator
 import android.content.Context
 import android.util.AttributeSet
 import android.view.LayoutInflater
+import android.view.animation.Animation
 import android.view.animation.AnimationUtils
 import android.widget.FrameLayout
 import androidx.core.view.isVisible
@@ -24,6 +25,8 @@ class DefaultContainerView @JvmOverloads constructor(
         )
 
     private var previousShowError: Boolean = false
+
+    private var isAnimating = false
 
     init {
         context.theme.obtainStyledAttributes(
@@ -49,9 +52,24 @@ class DefaultContainerView @JvmOverloads constructor(
 
     override fun setOnClickListener(l: OnClickListener?) {
         val pulse = AnimationUtils.loadAnimation(context, R.anim.anim_pulse)
-        binding.cvDefaultContainer.setOnClickListener {
-            it.startAnimation(pulse)
-            l?.onClick(it)
+
+        binding.cvDefaultContainer.setOnClickListener { view ->
+            if (isAnimating) return@setOnClickListener
+            isAnimating = true
+
+            view.startAnimation(pulse.apply {
+                setAnimationListener(object : Animation.AnimationListener {
+                    override fun onAnimationEnd(p0: Animation?) {
+                        view.post {
+                            l?.onClick(view)
+                            isAnimating = false
+                        }
+                    }
+
+                    override fun onAnimationRepeat(p0: Animation?) {}
+                    override fun onAnimationStart(p0: Animation?) {}
+                })
+            })
         }
     }
 

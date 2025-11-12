@@ -48,10 +48,4 @@ class GroupAdapter : BaseListAdapter<AdapterGroupBinding, String>(DIFF_UTIL) {
             tvGroupName.text = data
         }
     }
-
-    fun deleteItem(position: Int) {
-        val list = currentList.toMutableList()
-        list.removeAt(position - 1)
-        submitList(list)
-    }
 }

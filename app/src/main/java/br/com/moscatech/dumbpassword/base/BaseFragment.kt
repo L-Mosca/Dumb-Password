@@ -87,4 +87,11 @@ abstract class BaseFragment<VB : ViewBinding> : Fragment() {
     protected fun <T> getNavigationResult(key: String): MutableLiveData<T>? {
         return findNavController().currentBackStackEntry?.savedStateHandle?.getLiveData(key)
     }
+
+    protected fun <T> setNavigationResult(key: String, result: T) {
+        findNavController().previousBackStackEntry?.savedStateHandle?.set(
+            key,
+            result
+        )
+    }
 }

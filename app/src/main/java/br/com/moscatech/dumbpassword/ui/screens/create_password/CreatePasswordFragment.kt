@@ -6,6 +6,7 @@ import androidx.navigation.NavOptions
 import br.com.moscatech.dumbpassword.R
 import br.com.moscatech.dumbpassword.base.BaseFragment
 import br.com.moscatech.dumbpassword.databinding.FragmentCreatePasswordBinding
+import br.com.moscatech.dumbpassword.ui.screens.group.GroupFragment
 import br.com.moscatech.dumbpassword.utils.navigate
 import br.com.moscatech.dumbpassword.utils.popBackStack
 import dagger.hilt.android.AndroidEntryPoint
@@ -39,5 +40,9 @@ class CreatePasswordFragment : BaseFragment<FragmentCreatePasswordBinding>() {
         }
     }
 
-    override fun initObservers() {}
+    override fun initObservers() {
+        getNavigationResult<String>(GroupFragment.SELECTED_GROUP_ARG)?.observe(viewLifecycleOwner) {
+            binding.dcvGroup.contentText = it
+        }
+    }
 }

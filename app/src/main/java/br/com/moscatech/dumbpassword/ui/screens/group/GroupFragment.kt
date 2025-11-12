@@ -16,6 +16,10 @@ import dagger.hilt.android.AndroidEntryPoint
 @AndroidEntryPoint
 class GroupFragment : BaseFragment<FragmentGroupBinding>() {
 
+    companion object {
+        const val SELECTED_GROUP_ARG = "GroupFragment.SelectedGroupArg"
+    }
+
     override val bindingInflater: (LayoutInflater) -> FragmentGroupBinding
         get() = FragmentGroupBinding::inflate
 
@@ -39,7 +43,7 @@ class GroupFragment : BaseFragment<FragmentGroupBinding>() {
             setupAdapter(groupList)
         }
 
-        viewModel.showEditDialog.observe(this) { (_, group) ->
+        viewModel.showEditDialog.observe(viewLifecycleOwner) { (_, group) ->
             val direction = GroupFragmentDirections.actionGroupFragmentToNewGroupDialog(group)
             navigate(direction)
         }
@@ -54,8 +58,9 @@ class GroupFragment : BaseFragment<FragmentGroupBinding>() {
         binding.rvGroups.adapter = adapter
         adapter.submitList(groupList)
 
-        adapter.onItemClicked = { group, position ->
-            showShortToast(group)
+        adapter.onItemClicked = { group, _ ->
+            setNavigationResult(SELECTED_GROUP_ARG, group)
+            popBackStack()
         }
         adapter.onItemLongClicked = { group, view, position ->
             PopupMenu(requireContext(), view, Gravity.END).apply {
