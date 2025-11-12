@@ -1,7 +1,10 @@
 package br.com.moscatech.dumbpassword.ui.screens.group
 
+import android.view.Gravity
 import android.view.LayoutInflater
+import androidx.appcompat.widget.PopupMenu
 import androidx.fragment.app.viewModels
+import br.com.moscatech.dumbpassword.R
 import br.com.moscatech.dumbpassword.base.BaseFragment
 import br.com.moscatech.dumbpassword.databinding.FragmentGroupBinding
 import br.com.moscatech.dumbpassword.ui.adapters.GroupAdapter
@@ -28,8 +31,6 @@ class GroupFragment : BaseFragment<FragmentGroupBinding>() {
                 val direction = GroupFragmentDirections.actionGroupFragmentToNewGroupDialog()
                 navigate(direction)
             }
-
-
         }
     }
 
@@ -38,6 +39,12 @@ class GroupFragment : BaseFragment<FragmentGroupBinding>() {
             setupAdapter(groupList)
         }
 
+        viewModel.showEditDialog.observe(this) { (_, group) ->
+            val direction = GroupFragmentDirections.actionGroupFragmentToNewGroupDialog(group)
+            navigate(direction)
+        }
+
+        // Called when user press 'send' on keyboard in 'NewGroupDialog'
         getNavigationResult<String>(NewGroupDialog.NEW_GROUP_ARG)?.observe(viewLifecycleOwner) {
             viewModel.getGroups()
         }
@@ -46,8 +53,22 @@ class GroupFragment : BaseFragment<FragmentGroupBinding>() {
     private fun setupAdapter(groupList: List<String>) {
         binding.rvGroups.adapter = adapter
         adapter.submitList(groupList)
-        adapter.onItemClicked = {
-            showShortToast(it)
+
+        adapter.onItemClicked = { group, position ->
+            showShortToast(group)
+        }
+        adapter.onItemLongClicked = { group, view, position ->
+            PopupMenu(requireContext(), view, Gravity.END).apply {
+                menuInflater.inflate(R.menu.group_menu, this.menu)
+                setOnMenuItemClickListener {
+                    when (it.itemId) {
+                        R.id.menuGroupEdit -> viewModel.onEditClicked(group, position)
+                        R.id.menuGroupDelete -> viewModel.onDeleteClicked(group)
+                    }
+                    true
+                }
+                show()
+            }
         }
     }
 }

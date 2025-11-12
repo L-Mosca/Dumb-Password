@@ -9,6 +9,7 @@
 
         <item name="containerColor">@color/gray_300</item>
         <item name="cardColor">@color/white_400</item>
+        <item name="popMenuBackgroundColor">@color/white_400</item>
 
         <item name="colorAccent">@color/blue_400</item>
         <item name="iconColor">@color/gray_900</item>
@@ -20,6 +21,7 @@
         <item name="materialCardViewStyle">@style/Base.MaterialCardView</item>
         <item name="cardViewStyle">@style/Base.CardView</item>
         <item name="buttonStyle">@style/Base.AppCompatButton</item>
+        <item name="popupMenuStyle">@style/Base.PopMenu</item>
     </style>
 
     <style name="Theme.Dumb_password" parent="Base.Theme.Dumb_password" />
@@ -53,5 +55,12 @@
         <item name="android:paddingHorizontal">30dp</item>
         <item name="android:textColor">@color/white_400</item>
         <item name="android:textAllCaps">false</item>
+    </style>
+
+    <style name="Base.PopMenu" parent="Widget.AppCompat.PopupMenu">
+        <item name="android:popupBackground">@drawable/bg_pop_menu</item>
+        <item name="android:backgroundTint">?attr/cardColor</item>
+        <item name="android:textColor">?attr/textColor</item>
+        <item name="android:popupElevation">8dp</item>
     </style>
 </resources>

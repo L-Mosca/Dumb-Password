@@ -20,4 +20,17 @@ class GroupsUseCase @Inject constructor(private val preferences: PreferencesCont
     suspend fun getGroups(): List<String> {
         return preferences.getGroups()
     }
+
+    suspend fun deleteGroup(list: List<String>) {
+        preferences.saveGroup(list)
+    }
+
+    suspend fun editGroup(oldName: String, newName: String) {
+        val list = getGroups().toMutableList()
+        val index = list.indexOf(oldName)
+        if (index != -1) {
+            list[index] = newName
+            preferences.saveGroup(list)
+        }
+    }
 }
