@@ -15,5 +15,7 @@
     <string name="non_groups_found">Você ainda não possui nenhum grupo</string>
     <string name="new_group">Novo grupo</string>
     <string name="group_examples">Trabalho, jogos, redes sociais…</string>
+    <string name="exclude">Excluir</string>
+    <string name="edit">Editar</string>
 
 </resources>
