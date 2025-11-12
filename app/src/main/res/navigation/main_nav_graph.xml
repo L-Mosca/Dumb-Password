@@ -37,7 +37,11 @@
         <action
             android:id="@+id/action_createPasswordFragment_to_group_nav_graph"
             app:destination="@id/group_nav_graph" />
+        <action
+            android:id="@+id/action_createPasswordFragment_to_platform_nav_graph"
+            app:destination="@id/platform_nav_graph" />
     </fragment>
 
     <include app:graph="@navigation/group_nav_graph" />
+    <include app:graph="@navigation/platform_nav_graph" />
 </navigation>

@@ -2,9 +2,9 @@ package br.com.moscatech.dumbpassword.ui.screens.new_group
 
 import android.view.LayoutInflater
 import androidx.fragment.app.viewModels
-import androidx.navigation.fragment.navArgs
 import br.com.moscatech.dumbpassword.base.BaseDialogFragment
 import br.com.moscatech.dumbpassword.databinding.DialogNewGroupBinding
+import br.com.moscatech.dumbpassword.utils.showKeyboard
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -19,9 +19,9 @@ class NewGroupDialog : BaseDialogFragment<DialogNewGroupBinding>() {
 
     override val viewModel: NewGroupViewModel by viewModels()
 
-    val args: NewGroupDialogArgs by navArgs()
-
     override fun initViews() {
+        binding.etNewGroupName.showKeyboard(requireActivity().window)
+
         binding.etNewGroupName.setOnEditorActionListener { textView, actionId, _ ->
             viewModel.onEditorActionListener(textView, actionId)
         }
@@ -36,6 +36,7 @@ class NewGroupDialog : BaseDialogFragment<DialogNewGroupBinding>() {
 
         viewModel.groupName.observe(this) {
             binding.etNewGroupName.setText(it)
+            binding.etNewGroupName.setSelection(it.length)
         }
     }
 }

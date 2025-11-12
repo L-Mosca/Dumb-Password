@@ -18,4 +18,8 @@
     <string name="exclude">Excluir</string>
     <string name="edit">Editar</string>
 
+    <!-- Platform -->
+    <string name="platform_examples">Teams, Gmail, Outlook…</string>
+    <string name="new_platform">Nova plataforma</string>
+
 </resources>
