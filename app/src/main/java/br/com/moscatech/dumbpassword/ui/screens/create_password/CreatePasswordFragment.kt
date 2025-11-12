@@ -7,6 +7,7 @@ import br.com.moscatech.dumbpassword.R
 import br.com.moscatech.dumbpassword.base.BaseFragment
 import br.com.moscatech.dumbpassword.databinding.FragmentCreatePasswordBinding
 import br.com.moscatech.dumbpassword.ui.screens.group.GroupFragment
+import br.com.moscatech.dumbpassword.ui.screens.platform.PlatformFragment
 import br.com.moscatech.dumbpassword.utils.navigate
 import br.com.moscatech.dumbpassword.utils.popBackStack
 import dagger.hilt.android.AndroidEntryPoint
@@ -36,13 +37,32 @@ class CreatePasswordFragment : BaseFragment<FragmentCreatePasswordBinding>() {
                 navigate(direction, navOptions)
             }
 
-            dcvPlatform.setOnClickListener { }
+            dcvPlatform.setOnClickListener {
+                val navOptions = NavOptions.Builder()
+                    .setEnterAnim(R.anim.slide_in_right)
+                    .setExitAnim(R.anim.slide_out_left)
+                    .setPopEnterAnim(R.anim.slide_in_left)
+                    .setPopExitAnim(R.anim.slide_out_right)
+                    .build()
+
+                val direction =
+                    CreatePasswordFragmentDirections.actionCreatePasswordFragmentToPlatformNavGraph()
+                navigate(direction, navOptions)
+            }
         }
     }
 
     override fun initObservers() {
-        getNavigationResult<String>(GroupFragment.SELECTED_GROUP_ARG)?.observe(viewLifecycleOwner) {
+        getNavigationResult<String>(
+            GroupFragment.SELECTED_GROUP_ARG
+        )?.observe(viewLifecycleOwner) {
             binding.dcvGroup.contentText = it
+        }
+
+        getNavigationResult<String>(
+            PlatformFragment.SELECTED_PLATFORM_ARG
+        )?.observe(viewLifecycleOwner) {
+            binding.dcvPlatform.contentText = it
         }
     }
 }

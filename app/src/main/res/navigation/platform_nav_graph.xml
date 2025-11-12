@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/platform_nav_graph"
+    app:startDestination="@id/platformFragment">
+
+    <fragment
+        android:id="@+id/platformFragment"
+        android:name="br.com.moscatech.dumbpassword.ui.screens.platform.PlatformFragment"
+        android:label="PlatformFragment"
+        tools:layout="@layout/fragment_platform">
+        <action
+            android:id="@+id/action_platformFragment_to_newPlatformDialog"
+            app:destination="@id/newPlatformDialog" />
+    </fragment>
+
+    <dialog
+        android:id="@+id/newPlatformDialog"
+        android:name="br.com.moscatech.dumbpassword.ui.screens.new_platform.NewPlatformDialog"
+        android:label="NewPlatformDialog"
+        tools:layout="@layout/dialog_new_platform">
+        <argument
+            android:name="platform"
+            android:defaultValue="@null"
+            app:argType="string"
+            app:nullable="true" />
+    </dialog>
+</navigation>

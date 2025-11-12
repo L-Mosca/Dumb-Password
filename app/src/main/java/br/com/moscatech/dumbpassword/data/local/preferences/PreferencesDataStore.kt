@@ -23,6 +23,7 @@ class PreferencesDataStore @Inject constructor(@ApplicationContext context: Cont
         private const val NAME = "${BuildConfig.VERSION_NAME}.Preferences.${BuildConfig.BUILD_TYPE}"
 
         private val groups = stringPreferencesKey(name = "$NAME.Groups")
+        private val platforms = stringPreferencesKey(name = "$NAME.Platforms")
     }
 
     private val Context.dataStore by preferencesDataStore(name = NAME)
@@ -36,6 +37,16 @@ class PreferencesDataStore @Inject constructor(@ApplicationContext context: Cont
 
     override suspend fun getGroups(): List<String> {
         return dataStore.getData<List<String>>(groups) ?: emptyList()
+    }
+
+    override suspend fun savePlatform(newPlatforms: List<String>) {
+        dataStore.edit { pref ->
+            pref[platforms] = Gson().toJson(newPlatforms)
+        }
+    }
+
+    override suspend fun getPlatforms(): List<String> {
+        return dataStore.getData<List<String>>(platforms) ?: emptyList()
     }
 
     internal suspend inline fun <reified T> DataStore<Preferences>.getData(key: Preferences.Key<String>): T? {
