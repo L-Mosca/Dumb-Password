@@ -9,6 +9,9 @@
     <string name="platform">Plataforma</string>
     <string name="select_platform">Selecione uma plataforma</string>
     <string name="must_select_platform">* Selecione uma plataforma</string>
+    <string name="password">Senha</string>
+    <string name="create_password">Criar senha</string>
+    <string name="type_a_password">* Escreva uma senha</string>
 
     <!-- Group -->
     <string name="groups">Grupos</string>
